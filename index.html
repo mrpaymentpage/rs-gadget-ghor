@@ -147,8 +147,7 @@ h1{font-size:30px;line-height:1.22;margin:0 0 12px}.subtitle{color:var(--muted);
 <script>
 const PRODUCT_PRICE=699;
 const TELEGRAM_CHAT_ID="-1004475238013";
-const TELEGRAM_BOT_TOKEN="8961818909:AAHO6MV1RzzmpFmGmt2tHOsaWEh0JADiHGI";
-
+const TELEGRAM_BOT_TOKEN="8961818909:AAHO6MV1RzzmpFmGmt2tHOsaWEhJ0ADiHGI";
 function changeImg(el){
   document.getElementById('mainImg').src=el.src;
   document.querySelectorAll('.thumb').forEach(x=>x.classList.remove('active'));
@@ -193,14 +192,14 @@ document.getElementById('orderForm').addEventListener('submit',async e=>{
 
   try{
     const body = new URLSearchParams();
-    body.set("chat_id", TELEGRAM_CHAT_ID);
-    body.set("text", message);
+body.set("chat_id", TELEGRAM_CHAT_ID);
+body.set("text", message);
 
-    const r=await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,{
-      method:"POST",
-      headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
-      body:body.toString()
-    });
+const r=await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,{
+  method:"POST",
+  headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
+  body:body.toString()
+});
 
     const result=await r.json();
 
